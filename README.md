@@ -1,5 +1,5 @@
 # nametag
-Mimic ccommonly seen online game player ID
+Mimic commonly seen online game player ID
 
 ## Build
 `mvn clean install`
