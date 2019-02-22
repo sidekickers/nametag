@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="appleFanboyFormatter" class="org.sidekickers.nametag.formatter.AppleFanboyFormatter"></bean>
+	<bean id="articleFormatter" class="org.sidekickers.nametag.formatter.ArticleFormatter"></bean>
+	<bean id="bigOFormatter" class="org.sidekickers.nametag.formatter.BigOFormatter"></bean>
+	<bean id="clanFormatter" class="org.sidekickers.nametag.formatter.ClanFormatter"></bean>
+	<bean id="doubleCrossFormatter" class="org.sidekickers.nametag.formatter.DoubleCrossFormatter"></bean>
+	<bean id="leetFormatter" class="org.sidekickers.nametag.formatter.LeetFormatter"></bean>
+	<bean id="numberedFormatter" class="org.sidekickers.nametag.formatter.NumberedFormatter"></bean>
+	<bean id="snakeFormatter" class="org.sidekickers.nametag.formatter.SnakeFormatter"></bean>
+	<bean id="studlyFormatter" class="org.sidekickers.nametag.formatter.StudlyFormatter"></bean>
+	<bean id="titleFormatter" class="org.sidekickers.nametag.formatter.TitleFormatter"></bean>
+	<bean id="yearlyFormatter" class="org.sidekickers.nametag.formatter.YearlyFormatter"></bean>
+	<bean id="zeroFormatter" class="org.sidekickers.nametag.formatter.ZeroFormatter"></bean>
+	<bean id="varyNumberFormatter" class="org.sidekickers.nametag.formatter.VaryNumberFormatter"></bean>
+	<bean id="allCapFormatter" class="org.sidekickers.nametag.formatter.AllCapFormatter"></bean>
+
+
+
+	<bean id="playerNameTagBuilder" class="org.sidekickers.nametag.PlayerNameTagBuilder">
+
+		<property name="nameSourceGenerators">
+			<list>
+				<bean class="org.sidekickers.nametag.namesource.generator.NounPhraseGenerator"></bean>
+				<bean class="org.sidekickers.nametag.namesource.generator.GamerTagGenerator"></bean>
+				<bean class="org.sidekickers.nametag.namesource.generator.TextFileBaseGenerator">
+					<constructor-arg value="namesource/corny/corny.txt"></constructor-arg>
+				</bean>
+			</list>
+		</property>
+
+		<property name="nameTagFormatterGroups">
+			<list>
+				<list>
+					<ref bean="clanFormatter" />
+					<ref bean="snakeFormatter" />
+				</list>
+				<list>
+					<ref bean="clanFormatter" />
+					<ref bean="titleFormatter" />
+				</list>
+				<list>
+					<ref bean="studlyFormatter" />
+					<ref bean="doubleCrossFormatter" />
+				</list>
+				<list>
+					<ref bean="studlyFormatter" />
+					<ref bean="varyNumberFormatter" />
+				</list>
+				<list>
+					<ref bean="leetFormatter" />
+					<ref bean="yearlyFormatter" />
+				</list>
+				<list>
+					<ref bean="allCapFormatter" />
+					<ref bean="leetFormatter" />
+				</list>
+				<list>
+					<ref bean="varyNumberFormatter" />
+					<ref bean="titleFormatter" />
+				</list>
+				<list>
+					<ref bean="zeroFormatter" />
+					<ref bean="varyNumberFormatter" />
+					<ref bean="doubleCrossFormatter" />
+				</list>
+				<list>
+					<ref bean="titleFormatter" />
+					<ref bean="appleFanboyFormatter" />
+					<ref bean="yearlyFormatter" />
+				</list>
+				<list>
+					<ref bean="articleFormatter" />
+					<ref bean="titleFormatter" />
+				</list>
+				<list>
+					<ref bean="articleFormatter" />
+					<ref bean="snakeFormatter" />
+				</list>
+				<list>
+					<ref bean="articleFormatter" />
+					<ref bean="snakeFormatter" />
+					<ref bean="varyNumberFormatter" />
+				</list>
+				<list>
+					<ref bean="titleFormatter" />
+					<ref bean="bigOFormatter" />
+				</list>
+			</list>
+
+		</property>
+
+	</bean>
+
+</beans>
