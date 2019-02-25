@@ -11,9 +11,9 @@ The jar is **NOT** available on any online repository. Please clone the reposito
 ## Getting Started
 ```java
 PlayerNameTagBuilder builder = PlayerNameTagBuilder.create();
-String playerName = builder.create();
+String playerName = builder.buildLiteral();
 ```
-`PlayerNameTagBuilder.build()` would generate a single random player ID in String. Below are some example.
+`PlayerNameTagBuilder.buildLiteral()` would generate a single random player ID in String. Below are some example.
 
 ```
 GWU__knuckles

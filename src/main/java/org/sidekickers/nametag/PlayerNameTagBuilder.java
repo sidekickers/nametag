@@ -19,7 +19,7 @@ public class PlayerNameTagBuilder extends NameTagBuilder {
 	private static final String APPLICATION_CONTEXT_XML = "applicationContext.xml";
 
 	@Override
-	public String build() {
+	public NameSource build() {
 		NameSource nameSource = nameSourceGenerators.get((int) (nameSourceGenerators.size() * Math.random()))
 				.generate();
 
@@ -30,7 +30,12 @@ public class PlayerNameTagBuilder extends NameTagBuilder {
 			formatter.format(nameSource);
 		}
 
-		return nameSource.toString();
+		return nameSource;
+	}
+
+	@Override
+	public String buildLiteral() {
+		return build().toString();
 	}
 
 	public List<NameSourceGenerator> getNameSourceGenerators() {
@@ -53,7 +58,6 @@ public class PlayerNameTagBuilder extends NameTagBuilder {
 		if (singleton == null) {
 			ApplicationContext context = new ClassPathXmlApplicationContext(APPLICATION_CONTEXT_XML);
 			singleton = (PlayerNameTagBuilder) context.getBean("playerNameTagBuilder");
-
 		}
 
 		return singleton;
