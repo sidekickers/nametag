@@ -1,12 +1,10 @@
 package org.sidekickers.nametag.namesource.generator;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.sidekickers.nametag.namesource.GenericNameSource;
 import org.sidekickers.nametag.namesource.NameSource;
 
@@ -41,11 +39,8 @@ public class TextFileBaseGenerator implements NameSourceGenerator {
 		ClassLoader classloader = this.getClass().getClassLoader();
 
 		try {
-			resources = FileUtils.readLines(new File(classloader.getResource(resourcePath).toURI()), ENCODING_UTF8);
+			resources = IOUtils.readLines(classloader.getResourceAsStream(resourcePath), ENCODING_UTF8);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
