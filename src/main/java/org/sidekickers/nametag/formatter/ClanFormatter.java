@@ -2,7 +2,7 @@ package org.sidekickers.nametag.formatter;
 
 import org.sidekickers.nametag.namesource.NameSource;
 
-public class ClanFormatter implements NameTagFormatter {
+public class ClanFormatter extends RandomNameTagFormatter {
 
 	private static final int ASCII_MIN = 65;
 	private static final int ASCII_MAX = 90;
@@ -14,7 +14,7 @@ public class ClanFormatter implements NameTagFormatter {
 		StringBuffer buff = new StringBuffer();
 
 		for (int i = 0; i < CLAN_LENGTH; i++) {
-			char c = (char) (ASCII_MIN + (Math.random() * (ASCII_MAX - ASCII_MIN)));
+			char c = (char) (ASCII_MIN + getRandom().nextInt(ASCII_MAX - ASCII_MIN));
 			buff.append(c);
 		}
 		buff.append(UNDERSCORE);

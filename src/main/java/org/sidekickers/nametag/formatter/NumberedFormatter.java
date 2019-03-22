@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.sidekickers.nametag.namesource.NameSource;
 
-public class NumberedFormatter implements NameTagFormatter {
+public class NumberedFormatter extends RandomNameTagFormatter {
 
 	private int digits;
 
@@ -21,7 +21,7 @@ public class NumberedFormatter implements NameTagFormatter {
 		if (digit == 0) {
 			base = 0;
 		}
-		int rand = (int) ((Math.random() * (Math.pow(10, digit) - base)));
+		int rand = (int) ((getRandom().nextInt((int) (Math.pow(10, digit)) - base)));
 
 		return (base + rand) + "";
 	}

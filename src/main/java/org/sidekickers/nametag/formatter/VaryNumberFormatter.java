@@ -19,7 +19,7 @@ public class VaryNumberFormatter extends NumberedFormatter {
 		double baseLength = COMMON_LENGTH - source.toString().length();
 
 		// range in -1, 0, 1
-		int varyLength = (int) (Math.random() * 3) - 1;
+		int varyLength = this.getRandom().nextInt(3) - 1;
 
 		int saltLength = (int) Math.max(Math.min(baseLength + varyLength, SALT_LENGTH_MAX), SALT_LENGTH_MIN);
 

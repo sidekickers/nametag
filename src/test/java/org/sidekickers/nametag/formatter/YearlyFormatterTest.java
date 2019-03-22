@@ -5,6 +5,8 @@ import org.sidekickers.nametag.namesource.generator.NounPhraseGenerator;
 
 import static org.junit.Assert.*;
 
+import java.security.SecureRandom;
+
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
@@ -14,6 +16,7 @@ public class YearlyFormatterTest {
 	public void testYearlyFormatter() {
 
 		YearlyFormatter fmt = new YearlyFormatter();
+		fmt.setRandom(new SecureRandom());
 
 		NameSource source = NounPhraseGenerator.newInstance().generate();
 

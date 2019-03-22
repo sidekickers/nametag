@@ -6,6 +6,8 @@ import org.sidekickers.nametag.namesource.generator.NounPhraseGenerator;
 
 import static org.junit.Assert.*;
 
+import java.security.SecureRandom;
+
 import org.apache.commons.lang3.StringUtils;
 
 public class ClanFormatterTest {
@@ -16,7 +18,9 @@ public class ClanFormatterTest {
 
 		String sourceName = StringUtils.join(source.getSource(), "");
 
-		new ClanFormatter().format(source);
+		ClanFormatter clanFormatter = new ClanFormatter();
+		clanFormatter.setRandom(new SecureRandom());
+		clanFormatter.format(source);
 
 		String productName = StringUtils.join(source.getProduct(), "");
 

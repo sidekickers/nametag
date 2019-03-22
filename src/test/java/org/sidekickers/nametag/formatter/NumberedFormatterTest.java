@@ -7,13 +7,17 @@ import org.sidekickers.nametag.namesource.generator.NounPhraseGenerator;
 
 import static org.junit.Assert.*;
 
+import java.security.SecureRandom;
+
 public class NumberedFormatterTest {
 
 	@Test
 	public void testNumberedFormatter() {
 
 		NameSource source = NounPhraseGenerator.newInstance().generate();
-		new NumberedFormatter(3).format(source);
+		NumberedFormatter numberedFormatter1 = new NumberedFormatter(3);
+		numberedFormatter1.setRandom(new SecureRandom());
+		numberedFormatter1.format(source);
 
 		// test 1
 		String sourceString = StringUtils.join(source.getSource(), "");
@@ -26,7 +30,9 @@ public class NumberedFormatterTest {
 
 		// test 2
 		source = NounPhraseGenerator.newInstance().generate();
-		new NumberedFormatter(1).format(source);
+		NumberedFormatter numberedFormatter2 = new NumberedFormatter(1);
+		numberedFormatter2.setRandom(new SecureRandom());
+		numberedFormatter2.format(source);
 		sourceString = StringUtils.join(source.getSource(), "");
 		productString = StringUtils.join(source.getProduct(), "");
 		assertEquals(1, productString.length() - sourceString.length());

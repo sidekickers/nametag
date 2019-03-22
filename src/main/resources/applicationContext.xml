@@ -7,16 +7,32 @@
 	<bean id="appleFanboyFormatter" class="org.sidekickers.nametag.formatter.AppleFanboyFormatter"></bean>
 	<bean id="articleFormatter" class="org.sidekickers.nametag.formatter.ArticleFormatter"></bean>
 	<bean id="bigOFormatter" class="org.sidekickers.nametag.formatter.BigOFormatter"></bean>
-	<bean id="clanFormatter" class="org.sidekickers.nametag.formatter.ClanFormatter"></bean>
+	<bean id="clanFormatter" class="org.sidekickers.nametag.formatter.ClanFormatter">
+		<property name="random">
+			<bean class="java.security.SecureRandom"></bean>
+		</property>
+	</bean>
 	<bean id="doubleCrossFormatter" class="org.sidekickers.nametag.formatter.DoubleCrossFormatter"></bean>
 	<bean id="leetFormatter" class="org.sidekickers.nametag.formatter.LeetFormatter"></bean>
-	<bean id="numberedFormatter" class="org.sidekickers.nametag.formatter.NumberedFormatter"></bean>
+	<bean id="numberedFormatter" class="org.sidekickers.nametag.formatter.NumberedFormatter">
+		<property name="random">
+			<bean class="java.security.SecureRandom"></bean>
+		</property>
+	</bean>
 	<bean id="snakeFormatter" class="org.sidekickers.nametag.formatter.SnakeFormatter"></bean>
 	<bean id="studlyFormatter" class="org.sidekickers.nametag.formatter.StudlyFormatter"></bean>
 	<bean id="titleFormatter" class="org.sidekickers.nametag.formatter.TitleFormatter"></bean>
-	<bean id="yearlyFormatter" class="org.sidekickers.nametag.formatter.YearlyFormatter"></bean>
+	<bean id="yearlyFormatter" class="org.sidekickers.nametag.formatter.YearlyFormatter">
+		<property name="random">
+			<bean class="java.security.SecureRandom"></bean>
+		</property>
+	</bean>
 	<bean id="zeroFormatter" class="org.sidekickers.nametag.formatter.ZeroFormatter"></bean>
-	<bean id="varyNumberFormatter" class="org.sidekickers.nametag.formatter.VaryNumberFormatter"></bean>
+	<bean id="varyNumberFormatter" class="org.sidekickers.nametag.formatter.VaryNumberFormatter">
+		<property name="random">
+			<bean class="java.security.SecureRandom"></bean>
+		</property>
+	</bean>
 	<bean id="allCapFormatter" class="org.sidekickers.nametag.formatter.AllCapFormatter"></bean>
 
 
