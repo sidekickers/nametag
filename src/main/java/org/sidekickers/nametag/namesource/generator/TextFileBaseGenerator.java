@@ -8,7 +8,7 @@ import org.apache.commons.io.IOUtils;
 import org.sidekickers.nametag.namesource.GenericNameSource;
 import org.sidekickers.nametag.namesource.NameSource;
 
-public class TextFileBaseGenerator implements NameSourceGenerator {
+public class TextFileBaseGenerator extends RandomNameSourceGenerator {
 
 	private static final String ENCODING_UTF8 = "UTF-8";
 
@@ -30,7 +30,7 @@ public class TextFileBaseGenerator implements NameSourceGenerator {
 			this.fetch();
 		}
 
-		String res = resources.get((int) (resources.size() * Math.random()));
+		String res = resources.get(this.getRandom().nextInt(resources.size()));
 
 		return GenericNameSource.create(res);
 	}

@@ -38,7 +38,7 @@ public class GamerTagGenerator extends TextFileBaseGenerator {
 		StringBuilder gamertagBuilder = new StringBuilder();
 		ArrayList<String> gamertagSource = new ArrayList<String>();
 		while (gamertagBuilder.length() < COMMON_LENGTH) {
-			String tag = gamertagPool.remove((int) (Math.random() * gamertagPool.size()));
+			String tag = gamertagPool.remove(this.getRandom().nextInt(gamertagPool.size()));
 			gamertagBuilder.append(tag);
 			gamertagSource.add(tag);
 		}
